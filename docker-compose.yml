@@ -9,6 +9,8 @@ services:
       - 127.0.0.1:5555:5555
     environment:
       SERVICE_PORT: 5555
+      HOST_NAME: $HOST_NAME
+      FROM_ADDRESS: $FROM_ADDRESS
     volumes:
       - /var/secure-api/share/web:/share
     networks:

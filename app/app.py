@@ -29,7 +29,7 @@ def health():
 @app.route("/info", methods=["GET"])
 def info():
 
-    hostname = os.getenv('HOSTNAME')
+    hostname = os.getenv('HOST_NAME')
     from_address = os.getenv('FROM_ADDRESS')
 
     print(f'running on {hostname} and using email sender address {from_address}')
@@ -39,7 +39,7 @@ def info():
 @app.route("/email/validate/<string:email>", methods=["GET"])
 def verify_email(email):
 
-    hostname = os.getenv('HOSTNAME')
+    hostname = os.getenv('HOST_NAME')
     from_address = os.getenv('FROM_ADDRESS')
 
     print(f'checking {email}')
