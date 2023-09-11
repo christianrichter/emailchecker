@@ -26,13 +26,21 @@ def health():
     return make_response("", 200)
 
 
-@app.route("/email/validate/<string:email>", methods=["GET"])
-def verify_email(email):
+@app.route("/info", methods=["GET"])
+def info():
 
     hostname = os.getenv('HOSTNAME')
     from_address = os.getenv('FROM_ADDRESS')
 
     print(f'running on {hostname} and using email sender address {from_address}')
+    return make_response("", 200)
+
+
+@app.route("/email/validate/<string:email>", methods=["GET"])
+def verify_email(email):
+
+    hostname = os.getenv('HOSTNAME')
+    from_address = os.getenv('FROM_ADDRESS')
 
     print(f'checking {email}')
 
