@@ -6,12 +6,12 @@ services:
     build:
       context: .
     ports:
-      - 5555:5555
+      - 127.0.0.1:5555:5555
     environment:
       SERVICE_PORT: 5555
     volumes:
       - /var/secure-api/share/web:/share
-    networks: 
+    networks:
       - main
 
   nginx:
@@ -20,12 +20,12 @@ services:
     ports:
       - 80:80
       - 443:443
-    environment: 
+    environment:
       DOMAIN_NAME: $DOMAIN_NAME
     volumes:
       - /var/secure-api/data/certbot/conf:/etc/letsencrypt
-      - /var/secure-api/data/certbot/www:/var/www/certbot 
-    networks: 
+      - /var/secure-api/data/certbot/www:/var/www/certbot
+    networks:
       - main
 
   certbot-auto:
@@ -33,11 +33,11 @@ services:
       context: ./certbot-auto
     volumes:
       - /var/secure-api/data/certbot/conf:/etc/letsencrypt
-      - /var/secure-api/data/certbot/www:/var/www/certbot 
-    environment: 
+      - /var/secure-api/data/certbot/www:/var/www/certbot
+    environment:
       DOMAIN_NAME: $DOMAIN_NAME
       EMAIL_ADDRESS: $EMAIL_ADDRESS
-    
+
 networks:
     main:
-      driver: bridge      
+      driver: bridge
