@@ -11,6 +11,7 @@ services:
       SERVICE_PORT: 5555
       HOST_NAME: $HOST_NAME
       FROM_ADDRESS: $FROM_ADDRESS
+      API_PASS: $API_PASS
     volumes:
       - /var/secure-api/share/web:/share
     networks:
